@@ -9,3 +9,6 @@ Using a Stack is the ideal data structure for managing undo operations because t
 
 Phase 4 - 
 The state captured by InsertCommand is saved so later you can undo the previous command. The state captured by DeleteCommand is saved because if you undo the delete command, the word could be gone and you can't get it back. It is more critical to store the previous state in a delete operation because if you need to undo what you deleted, you need to be able to put that word back.
+
+Phase 5- 
+MacroCommand demonstrates the Composite Pattern because it places multiple commands inside one command and treats all of those individual commands as one. It allows the EditorApp to treat a complex sequence of actions as if it were just one single button. The MacroCommand acts as the single button, and inside the MacroCommand are multiple commands. This also allows the EditorApp to undo all of the commands as one unit instead of having to undo each command separately.
