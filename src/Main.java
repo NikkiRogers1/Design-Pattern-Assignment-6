@@ -8,23 +8,25 @@ public class Main {
         Command insertCommand = new InsertCommand(textEditor, 0, "Hello");
         Command insertCommand2 = new InsertCommand(textEditor, 5, " World");
         Command insertCommand3 = new InsertCommand(textEditor, 11, "!");
-       
+        
+        Command deleteCommand = new DeleteCommand(textEditor, 5, 6);
+
+
         //Execute the command using the EditorApp
         editorApp.executeCommand(insertCommand);
         editorApp.executeCommand(insertCommand2);
         editorApp.executeCommand(insertCommand3);
 
+
+
        System.out.println(textEditor.getText());
         //Undo the last command
-        editorApp.undoLastCommand();
+        editorApp.executeCommand(deleteCommand);
         //Print the current text in the TextEditor
         System.out.println(textEditor.getText());
         
         editorApp.undoLastCommand();
         
-        System.out.println(textEditor.getText());  
-
-        editorApp.undoLastCommand();
         System.out.println(textEditor.getText()); 
     }
 }
