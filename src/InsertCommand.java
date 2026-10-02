@@ -18,4 +18,8 @@ public class InsertCommand implements Command {
         textEditor.insertText(position, newText);
     }
 
+    @Override
+    public void undo() {
+        textEditor.deleteText(position, newText.length());
+    }
 }

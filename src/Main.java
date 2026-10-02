@@ -8,8 +8,11 @@ public class Main {
         Command insertCommand = new InsertCommand(textEditor, 0, "Hello");
         //Execute the command using the EditorApp
         editorApp.executeCommand(insertCommand);
-
+        
+       System.out.println(textEditor.getText()); // This will print ""
+        //Undo the last command
+        editorApp.undoLastCommand();
         //Print the current text in the TextEditor
-        System.out.println(textEditor.getText()); // This will print "Hello"
+        System.out.println(textEditor.getText()); // This will print ""
     }
 }

@@ -13,6 +13,10 @@ public class TextEditor {
     public String getText() {
         return text.toString();
     }
+    //Deletes the text starting at the position given and continuing for the length given.
+    public void deleteText(int position, int length) {
+        text.delete(position, position + length);
+    }
 }
 
   
