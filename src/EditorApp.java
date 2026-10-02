@@ -1,15 +1,22 @@
+import java.util.Stack;
+
 public class EditorApp {
-    private Command lastCommand;
+    private Stack<Command> commandStack;
+
+    public EditorApp() {
+        this.commandStack = new Stack<>();
+    }
+
     //Executes whatever command is given to the EditorApp
  public void executeCommand(Command command) {
     //Tells the command to perform its action.
         command.execute();
-        lastCommand = command; // Store the executed command
+        commandStack.push(command); // Push the executed command onto the stack
     }
 public void undoLastCommand() {
-        if (lastCommand != null) {
-            lastCommand.undo();
-            lastCommand = null; // Clear the last command after undoing
+        if (!commandStack.isEmpty()) {
+            Command command = commandStack.pop();
+            command.undo();
         }
     }
 }
